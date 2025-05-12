@@ -1,5 +1,5 @@
 import React from 'react'
-import Illustration from '../assets/illustration.jpg'
+import illustration from '../assets/illustration.jpg'
 
 export default function PopularCategories() {
   return (
@@ -15,37 +15,37 @@ export default function PopularCategories() {
         {/* 1 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 2 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 3 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 4 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 5 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 6 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
 
@@ -58,37 +58,37 @@ export default function PopularCategories() {
         {/* 1 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 2 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 3 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 4 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 5 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
             {/* 6 */}
         <div className=' md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
             {/* images */}
-            <img src={Illustration} alt="#" />
+            <img src={illustration} alt="#" />
             <p className='font-normal text-center mt-4'>home for sale</p>
         </div>
 
