@@ -1,5 +1,5 @@
 import React from 'react'
-import illustration from '../assets/illustration.jpg'
+import illustration from '../assets/pic.jpg'
 
 export default function LandinPage() {
   return (
