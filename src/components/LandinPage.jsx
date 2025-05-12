@@ -1,5 +1,5 @@
 import React from 'react'
-import Illustration from '../assets/illustration.jpg'
+import illustration from '../assets/illustration.jpg'
 
 export default function LandinPage() {
   return (
@@ -8,7 +8,7 @@ export default function LandinPage() {
         <div className='w-[80%] h-[80%] md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
         <div className='lg:flex'>
        {/* Image  */}
-       <img src={Illustration} className='' alt="Illustration" />
+       <img src={illustration} className='' alt="Illustration" />
        {/* title  */}
        <div className=''>
         <p className='text-[2.3rem] font-bold text-center mt-16'>
