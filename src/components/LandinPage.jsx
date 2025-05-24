@@ -8,7 +8,7 @@ export default function LandinPage() {
         <div className='w-[80%] h-[80%] md:flex md:flex-col justify-center items-center bg-white shadow-md rounded-lg'>
         <div className='lg:flex'>
        {/* Image  */}
-       <img src={card} className='md:w-[60%] lg:w-[60%] h-full rounded-lg' alt="card" />
+       <img src={card} className='md:w-[60%] lg:w-[60%] md:h-full lg:h-full rounded-lg' alt="card" />
        {/* title  */}
        <div className=''>
         <p className='text-[3rem] font-bold text-center h-full md:mt-16 p-2'>
