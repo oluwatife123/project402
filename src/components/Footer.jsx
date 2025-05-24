@@ -4,7 +4,7 @@ export default function Footer() {
 	return (
 		<div className="mt-10">
 			{/* Top Footer */}
-			<div className="bg-[#323D49] text-white w-full px-6 py-10 flex flex-col md:flex-row flex-wrap justify-between items-start gap-8">
+			<div className="bg-[#8B653E] text-white w-full px-6 py-10 flex flex-col md:flex-row flex-wrap justify-between items-start gap-8">
 				{/* Section 1: Policies */}
 				<ul className="space-y-2 text-sm">
 					<li>About us</li>
@@ -67,7 +67,7 @@ export default function Footer() {
 			</div>
 
 			{/* Bottom Footer */}
-			<div className="bg-[#1E242D] h-[10vh] flex items-center justify-center">
+			<div className="bg-[#623b14] h-[10vh] flex items-center justify-center">
 				<p className="text-white text-sm">© 2025 medu.ng — All rights reserved.</p>
 			</div>
 		</div>
