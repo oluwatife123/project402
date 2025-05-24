@@ -11,7 +11,7 @@ export default function LandinPage() {
        <img src={card} className='md:w-[60%] lg:w-[60%] md:h-full lg:h-full rounded-lg' alt="card" />
        {/* title  */}
        <div className=''>
-        <p className='text-[3rem] font-bold text-center h-full md:mt-16 p-2'>
+        <p className='lg:text-[3rem] md:text-[3rem] text-[2.3rem]  font-bold text-center h-full md:mt-16 p-2'>
             <i className='text-[#8B653E] font-normal'>Medu</i> Is The Best Platform To Sell Anything.
         </p>
 
