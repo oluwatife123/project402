@@ -1,71 +1,72 @@
-
 import React, { useState } from "react";
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../firebase";
-import { useNavigate,Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-//   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     setError("");
-//     try {
-//       await signInWithEmailAndPassword(auth, email, password);
-//       navigate("/dashboard");
-//     } catch (err) {
-//       setError(err.message);
-//     }
-//   };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // After login success, navigate to your app dashboard or home
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   return (
-    // <div className="min-h-screen flex items-center justify-center bg-gray-100">
-    //   <form
-    //     onSubmit={handleLogin}
-    //     className="bg-white p-8 rounded shadow-md w-full max-w-sm"
-    //   >
-    //     <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <form
+        onSubmit={handleLogin}
+        className="bg-white p-8 rounded shadow-md w-full max-w-sm"
+      >
+        <h2 className="text-2xl font-bold mb-2 text-center text-[#8B653E]">medu</h2>
+        <p className="text-3xl mb-4 text-center">Welcome back to medu</p>
 
-    //     {error && (
-    //       <p className="mb-4 text-red-600 text-center">{error}</p>
-    //     )}
+        {error && (
+          <p className="mb-4 text-red-600 text-center">{error}</p>
+        )}
 
-    //     <label className="block mb-2 font-semibold">Email</label>
-    //     <input
-    //       type="email"
-    //       required
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //       className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    //     />
+        <label className="block mb-2 font-semibold">Email</label>
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
 
-    //     <label className="block mb-2 font-semibold">Password</label>
-    //     <input
-    //       type="password"
-    //       required
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    //     />
+        <label className="block mb-2 font-semibold">Password</label>
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <i
+            className={`pi ${showPassword ? "pi-eye-slash" : "pi-eye"} absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer`}
+            onClick={() => setShowPassword(!showPassword)}
+          ></i>
+        </div>
 
-    //     <button
-    //       type="submit"
-    //       className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-    //     >
-    //       Login
-    //     </button>
-    //   </form>
-    // </div>
-
-   <div className="flex items-center justify-center">
-    <p className="text-center text-[red] mb-6">ERROR 404!!! lOGIN NOT ALLOWED FOR USER YET,WEBSITE UNDER CONTRUCTION!!!!</p>
-    <Link to="/" className="text-center mt-10 text-[blue]"> Press here to go back</Link>
-    
-
-   </div>
-
+        <button
+          type="submit"
+          className="w-full bg-[#8B653E] text-white py-2 rounded hover:bg-[#623b14] transition mt-6"
+        >
+          Login
+        </button>
+        <p className="text-center mt-4">Don't have an account? <Link to="/register" className="text-[#8B653E]">Sign Up</Link></p>
+      </form>
+    </div>
   );
 }
