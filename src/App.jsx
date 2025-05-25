@@ -4,7 +4,7 @@ import MainPage from "./pages/MainPage";
 import Register from "./auths/RegisterPage";
 import ProductDetails from "./components/ProductDetails";
 import Login from "./auths/LoginPage";
-import ProtectedRoute from "./pages/ProtectedRoute"; // import here
+import ProtectedRoute from "./pages/ProtectedRoute";
 import "./App.css";
 
 export default function App() {

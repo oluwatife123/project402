@@ -43,7 +43,7 @@ export default function NavBar() {
   return (
     <div className="w-full px-4 py-3 bg-white shadow-md flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:gap-0">
       {/* Logo */}
-      <h1 className="text-[#8B653E] font-semibold text-2xl md:text-3xl">medu</h1>
+      <Link to="/" className="text-[#8B653E] font-semibold text-2xl md:text-3xl">medu</Link>
 
       {/* Center content */}
       <form
@@ -79,7 +79,7 @@ export default function NavBar() {
         {user ? (
           <>
             <p className="text-[#8B653E] text-md font-medium">
-              Email: {user.displayName || user.email}
+              <i className="font-bold">User:</i> {user.displayName || user.email}
             </p>
             <button
               onClick={handleLogout}
