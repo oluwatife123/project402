@@ -81,6 +81,15 @@ export default function NavBar() {
             <p className="text-[#8B653E] text-md font-medium">
               <i className="font-bold">User:</i> {user.displayName || user.email}
             </p>
+
+            {/* Add Product button */}
+            <Link
+              to="/add-product"
+              className="bg-green-600 text-white px-4 py-2 rounded-md text-sm"
+            >
+              Add Product
+            </Link>
+
             <button
               onClick={handleLogout}
               className="bg-red-600 text-white px-4 py-2 rounded-md text-sm"
