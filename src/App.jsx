@@ -5,7 +5,8 @@ import Register from "./auths/RegisterPage";
 import ProductDetails from "./components/ProductDetails";
 import Login from "./auths/LoginPage";
 import ProtectedRoute from "./pages/ProtectedRoute";
-import AddProduct from "./components/AddProduct"; // Import the new AddProduct component
+import AddProduct from "./components/AddProduct";
+import EditProduct from "./components/EditProduct";
 import "./App.css";
 
 export default function App() {
@@ -26,6 +27,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <AddProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/edit-product/:id" 
+          element={
+            <ProtectedRoute>
+              <EditProduct />
             </ProtectedRoute>
           }
         />
