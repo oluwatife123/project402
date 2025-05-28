@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { db, auth } from "../firebaseConfig"; // add auth import
+import { db, auth } from "../firebaseConfig"; 
 import { collection, getDocs, query, orderBy, doc, deleteDoc } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth"; // to check auth state
+import { onAuthStateChanged } from "firebase/auth"; 
 
 export default function PopularCategories() {
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState(null); // track user
+  const [user, setUser] = useState(null); 
   const navigate = useNavigate();
 
   // Track user auth state
