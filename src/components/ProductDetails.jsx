@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { db } from "../firebaseConfig";
-import { doc, getDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import { CartContext } from "./CartContext";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -11,6 +12,17 @@ export default function ProductDetails() {
   const [otherProducts, setOtherProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.imageUrl || product.image,
+    });
+    alert(`${product.title} added to cart!`);
+  };
 
   useEffect(() => {
     async function fetchProduct() {
@@ -18,7 +30,6 @@ export default function ProductDetails() {
         setLoading(true);
         setNotFound(false);
 
-        // Fetch the main product by ID
         const productDocRef = doc(db, "products", id);
         const productSnap = await getDoc(productDocRef);
 
@@ -30,12 +41,9 @@ export default function ProductDetails() {
 
         setProduct({ id: productSnap.id, ...productSnap.data() });
 
-        // Fetch other products excluding current one
         const productsCollection = collection(db, "products");
-        const q = query(productsCollection, where("__name__", "!=", id));
         const querySnapshot = await getDocs(productsCollection);
 
-        // Filter out current product by id manually because Firestore does not support != in where for document IDs
         const others = querySnapshot.docs
           .filter((doc) => doc.id !== id)
           .map((doc) => ({ id: doc.id, ...doc.data() }));
@@ -51,10 +59,6 @@ export default function ProductDetails() {
 
     fetchProduct();
   }, [id]);
-
-  const addToCart = () => {
-    alert(`Added ${product.title} to cart!`);
-  };
 
   if (loading) {
     return <p className="text-center mt-10">Loading product...</p>;
@@ -83,7 +87,7 @@ export default function ProductDetails() {
             <h1 className="text-2xl text-center sm:text-3xl md:text-4xl font-bold mb-2">{product.title}</h1>
             <p className="text-lg sm:text-xl text-center mb-4 mt-2 text-gray-600">{product.description || product.title}</p>
             <button
-              onClick={addToCart}
+              onClick={handleAddToCart}
               className="bg-[#8B653E] w-full text-white px-6 py-2 rounded hover:bg-[#623b14] transition"
             >
               Add to Cart

@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "primeicons/primeicons.css";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../firebaseConfig"; // Import your auth instance
+import { auth } from "../firebaseConfig";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { CartContext } from "./CartContext"; // 🛒 Import Cart Context
+import { FiShoppingCart } from "react-icons/fi"; // 🛒 Icon from react-icons
 
 export default function NavBar() {
   const [user, setUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const { cart } = useContext(CartContext);
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0); // 🧮 Total item count
 
   // Listen for auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        setUser(null);
-      }
+      setUser(currentUser || null);
     });
     return () => unsubscribe();
   }, []);
 
-  // Logout handler
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -31,11 +30,9 @@ export default function NavBar() {
     }
   };
 
-  // Handle Search button click or form submit
   const handleSearch = (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
     if (searchTerm.trim() !== "") {
-      // Navigate to /search page with query param
       navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
     }
   };
@@ -43,7 +40,9 @@ export default function NavBar() {
   return (
     <div className="w-full px-4 py-3 bg-white shadow-md flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:gap-0">
       {/* Logo */}
-      <Link to="/" className="text-[#8B653E] font-semibold text-2xl md:text-3xl">medu</Link>
+      <Link to="/" className="text-[#8B653E] font-semibold text-2xl md:text-3xl">
+        medu
+      </Link>
 
       {/* Center content */}
       <form
@@ -75,14 +74,23 @@ export default function NavBar() {
       </form>
 
       {/* Right content */}
-      <div className="flex items-center justify-end gap-3 w-full md:w-auto">
+      <div className="flex items-center justify-end gap-4 w-full md:w-auto">
+        {/* 🛒 Cart Icon with Badge */}
+        <Link to="/cart" className="relative text-[#8B653E]">
+          <FiShoppingCart className="text-2xl" />
+          {totalItems > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+              {totalItems}
+            </span>
+          )}
+        </Link>
+
         {user ? (
           <>
             <p className="text-[#8B653E] text-md font-medium">
               <i className="font-bold">User:</i> {user.displayName || user.email}
             </p>
 
-            {/* Add Product button */}
             <Link
               to="/add-product"
               className="bg-green-600 text-white px-4 py-2 rounded-md text-sm"
